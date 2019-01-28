@@ -12,12 +12,12 @@ const lotteryApp = {
                 console.log("Duplikat: " + a);
                 a = this.losowanie(max);
             }
-            numbers.push(a);
+            numbers.push("<span class='totekNumber'>" + a + "</span>");
         }
         return numbers;
     },
     showResults: function() {
-        this.results.innerText = this.totek(49, 20);
+        this.results.innerHTML = this.totek(49, 6).join("");
     },
 
     //podejście 1
@@ -30,6 +30,10 @@ const lotteryApp = {
 // lotteryApp.button.addEventListener("click", lotteryApp.showResults.bind(lotteryApp));
 
 lotteryApp.init();
+
+
+
+
 
 // lotteryApp.button.addEventListener("click", function() {lotteryApp.showResults});
 
