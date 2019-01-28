@@ -1,6 +1,7 @@
 const lotteryApp = {
     button: document.querySelector(".btn"),
     results: document.querySelector(".wynik"),
+    listitem: document.querySelector(".item01"),
     losowanie: function(num) {
         return Math.floor(Math.random() * (num - 1)) + 1;
     },
@@ -31,6 +32,20 @@ const lotteryApp = {
 
 lotteryApp.init();
 
+function invertSentence(input) {
+    return input.split(" ").reverse().join(" ");
+}
+
+(function() {
+    let button = document.querySelector(".wordbtn");
+    let text = document.querySelector(".input");
+    let outtext = document.querySelector(".output");
+    
+    button.addEventListener("click", function() {
+        console.log(invertSentence(text.value));
+        outtext.innerText = invertSentence(text.value);
+    });
+})();
 
 
 
