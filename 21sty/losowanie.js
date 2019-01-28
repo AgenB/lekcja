@@ -19,10 +19,15 @@ const lotteryApp = {
     showResults: function() {
         this.results.innerText = this.totek(49, 20);
     },
+
+    //podejście 1
     init: function() {
         this.button.addEventListener("click", this.showResults.bind(this));
     }
 }
+
+//podejście 2
+// lotteryApp.button.addEventListener("click", lotteryApp.showResults.bind(lotteryApp));
 
 lotteryApp.init();
 
