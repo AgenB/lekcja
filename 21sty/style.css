@@ -1,5 +1,23 @@
+@keyframes losujButton1 {
+    from {
+        background: #e2e2e2;
+    }
+    to {
+        background: #ffffff;
+    }
+}
+@keyframes losujButton2 {
+    from {
+        background: #ffffff;
+    }
+    to {
+        background: #e2e2e2;
+    }
+}
+
 body {
-    background: darkgrey;
+    background: rgb(102, 102, 102);
+    text-align: center;
 }
 .btn, .totekNumber {
     background: white;
@@ -10,4 +28,14 @@ body {
     height: 1.3em;
     text-align: center;
     border-radius: 5px;
+}
+.totekNumber {
+    background: rgb(255, 208, 0);
+    border-radius: 100px;
+}
+.btn {
+    animation: losujButton1 0.5s 1 forwards;
+}
+.btn:hover {
+    animation: losujButton2 0.5s 1 forwards;
 }
