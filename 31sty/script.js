@@ -8,14 +8,12 @@ var listaApp = {
         let element = document.createElement("div");
         let spanFirst = document.createElement("span");
         let spanSecond = document.createElement("span");
-        let spanDelete = document.createElement("span");
         let iElement = document.createElement("i");
 
         element.className = "element";
         spanFirst.className = "first";
         spanSecond.className = "second";
-        spanDelete.className = "third";
-        iElement.className = "fas fa-times";
+        iElement.className = "fas fa-times third";
 
         spanFirst.innerText = this.input.value;
         spanSecond.innerText = this.osoba.value;
@@ -23,9 +21,8 @@ var listaApp = {
         this.lista.appendChild(element);
         element.appendChild(spanFirst);
         element.appendChild(spanSecond);
-        element.appendChild(spanDelete);
-        spanDelete.appendChild(iElement);
-        
+        element.appendChild(iElement);
+
         this.input.value = "";
     },
     usun: function(event) {

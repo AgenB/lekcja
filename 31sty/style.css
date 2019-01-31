@@ -7,13 +7,15 @@
 .element {
     margin: 18px;
 }
-.first, .second, .third {
+.first, .second {
     background: lightblue;
     padding: 5px;
     margin: 0px 2px;
 }
 .third {
     background: crimson;
+    padding: 6px;
+    margin: 0px 2px;
 }
 .third:hover {
     background: lightcoral;
