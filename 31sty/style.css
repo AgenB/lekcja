@@ -1,0 +1,21 @@
+.tytul {
+    background: grey;
+    margin: 0px auto 20px;
+    padding: 20px;
+    text-align: center;
+}
+.element {
+    margin: 18px;
+}
+.first, .second, .third {
+    background: lightblue;
+    padding: 5px;
+    margin: 0px 2px;
+}
+.third {
+    background: crimson;
+}
+.third:hover {
+    background: lightcoral;
+    cursor: pointer;
+}
