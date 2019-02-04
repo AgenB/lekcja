@@ -15,7 +15,7 @@ var listaApp = {
         element.className = "element";
         spanFirst.className = "first";
         spanSecond.className = "second";
-        acceptElement.className = "fas fa-check acceptBtn";
+        // acceptElement.className = "fas fa-check acceptBtn";
         editElement.className = "fas fa-pen editBtn";
         delElement.className = "fas fa-times delBtn";
 
@@ -25,7 +25,7 @@ var listaApp = {
         this.lista.appendChild(element);
         element.appendChild(spanFirst);
         element.appendChild(spanSecond);
-        element.appendChild(acceptElement);
+        // element.appendChild(acceptElement);
         element.appendChild(editElement);
         element.appendChild(delElement);
 
@@ -37,9 +37,11 @@ var listaApp = {
         }
         else if (event.target.classList.contains("editBtn")) {
             event.target.parentElement.querySelector(".first").innerHTML = "<input type='text' class='textField'>";
+            event.target.className = "fas fa-check acceptBtn";
         }
         else if (event.target.classList.contains("acceptBtn")) {
             event.target.parentElement.querySelector(".first").innerHTML = event.target.parentElement.querySelector(".textField").value;
+            event.target.className = "fas fa-pen editBtn";
         }
     },
     init: function() {
