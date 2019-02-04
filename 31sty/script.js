@@ -26,7 +26,7 @@ var listaApp = {
         this.input.value = "";
     },
     usun: function(event) {
-        if (event.target.className == "third") {
+        if (event.target.classList.contains("third")) {
             event.target.parentElement.remove();
         }
     },
