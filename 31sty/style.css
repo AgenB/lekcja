@@ -12,12 +12,28 @@
     padding: 5px;
     margin: 0px 2px;
 }
-.third {
-    background: crimson;
+.acceptBtn, .editBtn, .delBtn {
     padding: 6px;
     margin: 0px 2px;
 }
-.third:hover {
-    background: lightcoral;
+.acceptBtn:hover, .editBtn:hover, .delBtn:hover {
     cursor: pointer;
+}
+.acceptBtn {
+    background: rgb(49, 202, 19);
+}
+.acceptBtn:hover {
+    background: rgb(147, 240, 128);
+}
+.editBtn {
+    background: rgb(18, 151, 212);
+}
+.editBtn:hover {
+    background: rgb(128, 204, 240);
+}
+.delBtn {
+    background: crimson;
+}
+.delBtn:hover {
+    background: lightcoral;
 }

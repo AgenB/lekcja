@@ -4,16 +4,20 @@ var listaApp = {
     osoba: document.querySelector(".selectimie"),
     guzik: document.querySelector(".guzik"),
 
-    dodaj: function() {
+    dodajZadanie: function() {
         let element = document.createElement("div");
         let spanFirst = document.createElement("span");
         let spanSecond = document.createElement("span");
-        let iElement = document.createElement("i");
+        let acceptElement = document.createElement("i");
+        let editElement = document.createElement("i");
+        let delElement = document.createElement("i");
 
         element.className = "element";
         spanFirst.className = "first";
         spanSecond.className = "second";
-        iElement.className = "fas fa-times third";
+        acceptElement.className = "fas fa-check acceptBtn";
+        editElement.className = "fas fa-pen editBtn";
+        delElement.className = "fas fa-times delBtn";
 
         spanFirst.innerText = this.input.value;
         spanSecond.innerText = this.osoba.value;
@@ -21,18 +25,26 @@ var listaApp = {
         this.lista.appendChild(element);
         element.appendChild(spanFirst);
         element.appendChild(spanSecond);
-        element.appendChild(iElement);
+        element.appendChild(acceptElement);
+        element.appendChild(editElement);
+        element.appendChild(delElement);
 
         this.input.value = "";
     },
-    usun: function(event) {
-        if (event.target.classList.contains("third")) {
+    btnAction: function(event) {
+        if (event.target.classList.contains("delBtn")) {
             event.target.parentElement.remove();
+        }
+        else if (event.target.classList.contains("editBtn")) {
+            event.target.parentElement.querySelector(".first").innerHTML = "<input type='text' class='textField'>";
+        }
+        else if (event.target.classList.contains("acceptBtn")) {
+            event.target.parentElement.querySelector(".first").innerHTML = event.target.parentElement.querySelector(".textField").value;
         }
     },
     init: function() {
-        this.guzik.addEventListener("click", this.dodaj.bind(this));
-        this.lista.addEventListener("click", this.usun.bind(this));
+        this.guzik.addEventListener("click", this.dodajZadanie.bind(this));
+        this.lista.addEventListener("click", this.btnAction.bind(this));
     }
 }
 
