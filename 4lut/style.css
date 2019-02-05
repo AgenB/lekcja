@@ -1,0 +1,18 @@
+.item {
+    background: lightgrey;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+ul {
+    list-style: none;
+}
+.closeBtn {
+    background: red;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+}
