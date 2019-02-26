@@ -1,25 +1,31 @@
-var cvs = document.querySelector("#canvas");
-var ctx = cvs.getContext("2d");
+const pauseBtn = document.querySelector("#pauseGame");
+const playBtn = document.querySelector("#playGame");
+const cvs = document.querySelector("#canvas");
+const ctx = cvs.getContext("2d");
 
-var bg = new Image();
-var fg = new Image();
-var bird = new Image();
-var pipeTop = new Image();
-var pipeDown = new Image();
+let bg = new Image();
+let fg = new Image();
+let bird = new Image();
+let pipeTop = new Image();
+let pipeDown = new Image();
 
-var isJumping = false;
-var bX = 10;
-var bY = 100;
-var score = 0;
-var gap = 100;
-var gravity = 1.02;
-var forceDown = 1;
+let isJumping = false;
+let bX = 10;
+let bY = 100;
+let score = 0;
+let gap = 100;
+let max = 350;
+let min = 200;
+let gravity = 0.1;
+let velocity = 0;
+let jump = -3;
+let pause = false;
 
-var pipe = [];
+const pipe = [];
 
 pipe[0] = {
     x: cvs.width,
-    y: 0
+    y: 250
 }
 
 bg.src = "img/bg.png";
@@ -28,14 +34,12 @@ bird.src = "img/bird.png";
 pipeTop.src = "img/pipeTop.png";
 pipeDown.src = "img/pipeDown.png";
 
-document.addEventListener("keydown", jump);
+document.addEventListener("keydown", jumpUp);
 document.addEventListener("keyup", notJumping);
-function jump() {
+function jumpUp() {
     if (!isJumping) {
-        bY = bY - 50;
-        if (bY < 0) bY = 0;
+        velocity = jump;
         isJumping = true;
-        forceDown = 1;
     }
 }
 function notJumping() {
@@ -43,25 +47,35 @@ function notJumping() {
 }
 
 function draw() {
+    requestID = requestAnimationFrame(draw);
+
     ctx.drawImage(bg, 0, 0);
-    ctx.drawImage(fg, 0, cvs.height - fg.height);
     ctx.drawImage(bird, bX, bY);
 
     for (var i = 0; i < pipe.length; i++) {
-        ctx.drawImage(pipeTop, pipe[i].x, pipe[i].y);
-        ctx.drawImage(pipeDown, pipe[i].x, pipe[i].y+pipeTop.height+gap);
-        pipe[i].x -= 1;
+		ctx.drawImage(pipeDown, pipe[i].x, pipe[i].y);
+		ctx.drawImage(pipeTop, pipe[i].x, pipe[i].y-pipeTop.height-gap);
+		pipe[i].x--;
 
         if (pipe[i].x == 100) {
             pipe.push({
                 x: cvs.width,
-                y: 200 * Math.random() - 200
+                y: Math.floor(Math.random() * (max - min) + min)
             })
         }
-        if ((bX+bird.width-4 >= pipe[i].x && bX+bird.width-4 <= pipe[i].x+pipeTop.width) && (bY <= pipe[i].y + pipeTop.height || bY >= pipe[i].y + pipeTop.height + gap)) {
-            location.reload();
-        }
+        if (
+			(pipe[i].x > -pipeDown.width) &&
+			(
+				( (bX < pipe[i].x) && (bX + bird.width >pipe[i].x) ) ||
+				( (bX > pipe[i].x) && (bX  + bird.width  < pipe[i].x + pipeDown.width) ) ||
+				( (bX < pipe[i].x + pipeDown.width) && (bX + bird.width> pipe[i].x + pipeDown.width) )
+			) &&
+			( (bY + bird.height >= pipe[i].y) || (bY <= pipe[i].y - gap))
+		) {
+			cancelAnimationFrame(requestID);
+		}
     }
+    ctx.drawImage(fg, 0, cvs.height - fg.height);
     if (pipe[0].x < -80) {
         pipe.shift();
     }
@@ -69,17 +83,27 @@ function draw() {
         score += 1;
     }
 
-    forceDown = forceDown * gravity;
-    bY += forceDown;
-
     ctx.font = ("20px Verdana");
     ctx.fillText("Score: " + score, 10, 20);
+	velocity += gravity;
 
-    if (bY == cvs.height - bird.height - fg.height) {
-        location.reload();
-    }
-    else {
-        requestAnimationFrame(draw);
-    }
+	if (bY > bg.height - bird.height || bY < 0) {
+		velocity = 0;
+		cancelAnimationFrame(requestID);
+	}
+	bY = bY + velocity;
 }
+pauseBtn.addEventListener("click", function() {
+	// animacja stop;
+	cancelAnimationFrame(requestID);
+	pause = true;
+});
+playBtn.addEventListener("click", function() {
+	//animacja start;
+	if ( pause === true ) {
+		requestAnimationFrame(draw);
+	}
+	this.blur();
+	pause = false;
+});
 draw();
