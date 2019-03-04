@@ -16,4 +16,7 @@ btnGet.addEventListener("click", function() {
             })
         }
     });
+    xhr.addEventListener("error", function() {
+        alert("błąd");
+    })
 });
