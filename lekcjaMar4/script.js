@@ -1,6 +1,9 @@
 const btnGet = document.querySelector(".btnget");
 const list = document.querySelector(".results");
+
 const btnSend = document.querySelector(".btnsend");
+const inputImie = document.querySelector("#imie");
+const inputNazwisko = document.querySelector("#nazwisko");
 
 btnGet.addEventListener("click", function() {
     let xhr = new XMLHttpRequest();
@@ -26,8 +29,10 @@ btnGet.addEventListener("click", function() {
 });
 
 btnSend.addEventListener("click", function() {
+    let imie = inputImie.value;
+    let nazwisko = inputNazwisko.value;
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "http://172.16.131.125/3ti/belica_d/lekcjaMar4/dane.php", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("imie='JAN' & nazwisko='Kowalski'");
+    xhr.send("imie=" + imie + " & nazwisko=" + nazwisko);
 });

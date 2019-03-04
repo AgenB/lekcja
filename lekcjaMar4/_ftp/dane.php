@@ -1,4 +1,4 @@
 <?php
-echo("test");
-echo($_POST["imie"]);
+echo("test<br>");
+echo($_POST["imie"]." ".$_POST["nazwisko"]);
 ?>
