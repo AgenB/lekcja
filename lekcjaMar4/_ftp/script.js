@@ -40,10 +40,14 @@ btnSend.addEventListener("click", function() {
 
 btnGetLocal.addEventListener("click", function() {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://172.16.131.125/3ti/belica_d/lekcjaMar4/dane1.php", true);
+    xhr.open("GET", "http://172.16.131.125/3ti/belica_d/lekcjaMar4/dane2.php", true);
     xhr.send();
     xhr.addEventListener("load", function() {
         let result = JSON.parse(this.response);
-        console.log(result);
+        result.map(function(el) {
+            const p = document.createElement("p");
+            p.innerText = el;
+            list.appendChild(p);
+        });
     });
 });
