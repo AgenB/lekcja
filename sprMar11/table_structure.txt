@@ -1,0 +1,3 @@
+name: imiona
+int: id (auto increment)
+varchar(255): imiona
