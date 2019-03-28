@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+}
+.container {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
+}
+.top {
+    width: 100%;
+    height: 50%;
+    background: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottom {
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+.left {
+    width: 50%;
+    background: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right {
+    width: 50%;
+    background: lightcoral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table {
+    border-collapse: collapse;
+}
+td {
+    border: 1px solid black;
+    padding: 0.3em;
+}
+.form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 40%;
+}
+.input {
+    width: 100%;
+    margin: 0.5em;
+}
+tr:nth-child(odd) {
+    background: rgb(180, 180, 180);
+}
+tr:nth-child(even) {
+    background: lightgray;
+}
