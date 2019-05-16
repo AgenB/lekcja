@@ -1,0 +1,22 @@
+body {
+    background: black;
+}
+@keyframes scrollBg {
+    from {
+        background-position-y: 0px;
+    }
+    to {
+        background-position-y: 256px;
+    }
+}
+.game {
+    width: 640px;
+    height: 480px;
+    background: url("img/background-blue.png");
+    animation: scrollBg 5s linear infinite;
+}
+.game .player {
+    position: absolute;
+    margin: 0 0 0 -20px;
+    width: 40px;
+}
