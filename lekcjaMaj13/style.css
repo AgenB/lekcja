@@ -117,21 +117,10 @@ body {
 }
 .panel {
     padding: 0 18px;
-    background: #d7e9f5;
+    background: #a1c7df;
     overflow: hidden;
     max-height: 0;
     transition: max-height 0.2s ease-out;
-}
-.tab {
-    background: #b7d4e7;
-    cursor: pointer;
-    padding: 18px;
-    width: 33.33%;
-    text-align: left;
-    border: none;
-    outline: none;
-    transition: 0.2s;
-    text-align: center;
 }
 @keyframes showContent {
     from {
@@ -141,7 +130,24 @@ body {
         background: #ccebff;
     }
 }
-.tab:hover, .activeTab {
+.tabHolder {
+    display: flex;
+}
+.tab {
+    background: #b7d4e7;
+    cursor: pointer;
+    padding: 18px 0;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+    text-align: center;
+    flex: 0 1.1 100%;
+}
+.activeTab {
+    background: #ccebff;
+    flex: 0 1 100%;
+}
+.tab:hover {
     background: #ccebff;
 }
 .tabSection {
