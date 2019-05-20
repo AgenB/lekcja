@@ -21,3 +21,9 @@ body {
     margin: 0 0 0 -20px;
     width: 40px;
 }
+.missile {
+    position: absolute;
+    margin: 0 0 0 -5px;
+    width: 10px;
+    height: 25px;
+}
