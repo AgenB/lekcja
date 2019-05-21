@@ -17,7 +17,8 @@ export const GAME_STATE = {
     missileShot: false,
     playerX: 0,
     playerY: 0,
-    missiles: []
+    missiles: [],
+    enemies: []
 }
 
 export const $container = document.querySelector(".game");

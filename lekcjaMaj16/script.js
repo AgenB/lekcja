@@ -1,19 +1,14 @@
-import {
-    createPlayer,
-    updatePlayer
-} from "./player.js"
+import { createPlayer, updatePlayer } from "./player.js"
 
 import {
     GAME_STATE,
-    $container,
-    KEY_CODE_LEFT,
-    KEY_CODE_RIGHT,
-    KEY_CODE_SPACE
+    $container
 } from "./global.js"
 
 import {
     updateMissile
 } from "./missile.js"
+import { createEnemy } from "./enemies.js";
 
 function update() {
     const currentTime = Date.now();
@@ -26,34 +21,9 @@ function update() {
 
 function init() {
     createPlayer($container);
-}
-
-function onKeyDown(e) {
-    if (e.keyCode === KEY_CODE_LEFT) {
-        GAME_STATE.leftPressed = true;
-    }
-    else if (e.keyCode === KEY_CODE_RIGHT) {
-        GAME_STATE.rightPressed = true;
-    }
-    else if (e.keyCode === KEY_CODE_SPACE) {
-        GAME_STATE.spacePressed = true;
-    }
-}
-
-function onKeyUp(e) {
-    if (e.keyCode === KEY_CODE_LEFT) {
-        GAME_STATE.leftPressed = false;
-    }
-    else if (e.keyCode === KEY_CODE_RIGHT) {
-        GAME_STATE.rightPressed = false;
-    }
-    else if (e.keyCode === KEY_CODE_SPACE) {
-        GAME_STATE.spacePressed = false;
-    }
+    createEnemy($container, 100, 100);
 }
 
 init();
 
-window.addEventListener("keydown", onKeyDown);
-window.addEventListener("keyup", onKeyUp);
 window.requestAnimationFrame(update);

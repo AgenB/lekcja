@@ -1,21 +1,6 @@
-import {
-    GAME_STATE,
-    GAME_WIDTH,
-    GAME_HEIGHT,
-    $container,
-    PLAYER_WIDTH,
-    PLAYER_SPEED,
-    $playerDOM
-} from "./global.js"
-
-import {
-    setPosition,
-    clamp
-} from "./tools.js"
-
-import {
-    createMissile
-} from "./missile.js"
+import { GAME_STATE, GAME_WIDTH, GAME_HEIGHT, $container, PLAYER_WIDTH, PLAYER_SPEED, $playerDOM } from "./global.js"
+import { setPosition, clamp } from "./tools.js"
+import { createMissile } from "./missile.js"
 
 export function createPlayer($container) {
     GAME_STATE.playerX = GAME_WIDTH/2;

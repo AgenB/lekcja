@@ -1,11 +1,5 @@
-import {
-    GAME_STATE,
-    MISSILE_MAX_SPEED
-} from "./global.js"
-
-import {
-    setPosition
-} from "./tools.js"
+import { GAME_STATE, MISSILE_MAX_SPEED } from "./global.js"
+import { setPosition } from "./tools.js"
 
 export function createMissile($container, x, y) {
     const $missile = document.createElement("img");
