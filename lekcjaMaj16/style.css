@@ -1,6 +1,12 @@
 body {
     background: black;
     margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @keyframes scrollBg {
     from {
@@ -15,6 +21,8 @@ body {
     height: 480px;
     background: url("img/background-blue.png");
     animation: scrollBg 5s linear infinite;
+    overflow: hidden;
+    position: relative;
 }
 .game .player {
     position: absolute;

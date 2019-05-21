@@ -1,92 +1,24 @@
-const KEY_CODE_LEFT = 37;
-const KEY_CODE_RIGHT = 39;
-const KEY_CODE_SPACE = 32;
+import {
+    createPlayer,
+    updatePlayer
+} from "./player.js"
 
-const GAME_WIDTH = 640;
-const GAME_HEIGHT = 480;
+import {
+    GAME_STATE,
+    $container,
+    KEY_CODE_LEFT,
+    KEY_CODE_RIGHT,
+    KEY_CODE_SPACE
+} from "./global.js"
 
-const PLAYER_WIDTH = 20;
-const MISSILE_MAX_SPEED = 1000;
-
-const GAME_STATE = {
-    lastTime: Date.now(),
-    leftPressed: false,
-    rightPressed: false,
-    spacePressed: false,
-    missileShot: false,
-    playerX: 0,
-    playerY: 0,
-    missiles: []
-}
-
-const $container = document.querySelector(".game");
-const $playerDOM = document.createElement("img");
-
-function clamp(v, min, max) {
-    if (v < min) {return min}
-    else if (v > max) {return max}
-    else {return v}
-}
-
-function setPosition($element, x, y) {
-    $element.style.transform = `translate(${x}px, ${y}px)`;
-}
-
-
-
-function createPlayer($container) {
-    GAME_STATE.playerX = GAME_WIDTH/2;
-    GAME_STATE.playerY = GAME_HEIGHT-50;
-
-    $playerDOM.src = "img/spaceShips_004.png";
-    $playerDOM.className = "player";
-    $container.appendChild($playerDOM);
-    setPosition($playerDOM, GAME_STATE.playerX, GAME_STATE.playerY);
-}
-
-function updatePlayer() {
-    if (GAME_STATE.leftPressed) {GAME_STATE.playerX -= 5}
-    else if (GAME_STATE.rightPressed) {GAME_STATE.playerX += 5}
-    GAME_STATE.playerX = clamp(GAME_STATE.playerX, PLAYER_WIDTH, GAME_WIDTH - PLAYER_WIDTH);
-    if (GAME_STATE.spacePressed) {
-        if (!GAME_STATE.missileShot) {
-            createMissile($container, GAME_STATE.playerX, GAME_STATE.playerY);
-            GAME_STATE.missileShot = true;
-        }
-    }
-    else {
-        GAME_STATE.missileShot = false;
-    }
-    setPosition($playerDOM, GAME_STATE.playerX, GAME_STATE.playerY);
-}
-
-
-
-function createMissile($container, x, y) {
-    const $missile = document.createElement("img");
-    $missile.src = "img/spaceMissiles_040.png";
-    $missile.className = "missile";
-    $container.appendChild($missile);
-    const missile = {
-        x, y, $missile
-    }
-    GAME_STATE.missiles.push(missile);
-    setPosition($missile, x, y);
-}
-
-function updateMissile(dt) {
-    const missiles = GAME_STATE.missiles;
-    missiles.map(missile => {
-        missile.y -= MISSILE_MAX_SPEED * dt;
-        setPosition(missile.$missile, missile.x, missile.y);
-    })
-}
-
+import {
+    updateMissile
+} from "./missile.js"
 
 function update() {
     const currentTime = Date.now();
     const dt = (currentTime - GAME_STATE.lastTime) / 1000;
-    updatePlayer();
+    updatePlayer(dt);
     updateMissile(dt);
     GAME_STATE.lastTime = currentTime;
     window.requestAnimationFrame(update);
