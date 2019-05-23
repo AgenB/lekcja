@@ -5,6 +5,12 @@ export const KEY_CODE_SPACE = 32;
 export const GAME_WIDTH = 640;
 export const GAME_HEIGHT = 480;
 
+export const ENEMY_HORIZONTAL_PADDING = 80;
+export const ENEMY_VERTICAL_PADDING = 50;
+export const ENEMY_VERTICAL_SPACING = 70;
+export const ENEMY_PER_ROW = 10;
+export const ENEMY_ROWS = 3;
+
 export const PLAYER_WIDTH = 20;
 export const PLAYER_SPEED = 250;
 export const MISSILE_MAX_SPEED = 1000;

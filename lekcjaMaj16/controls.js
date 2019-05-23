@@ -23,6 +23,3 @@ export function onKeyUp(e) {
         GAME_STATE.spacePressed = false;
     }
 }
-
-window.addEventListener("keydown", onKeyDown);
-window.addEventListener("keyup", onKeyUp);

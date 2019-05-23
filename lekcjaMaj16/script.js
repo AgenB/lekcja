@@ -8,7 +8,8 @@ import {
 import {
     updateMissile
 } from "./missile.js"
-import { createEnemy } from "./enemies.js";
+import { createEnemy } from "./enemies.js"
+import { onKeyDown, onKeyUp } from "./controls.js"
 
 function update() {
     const currentTime = Date.now();
@@ -26,4 +27,6 @@ function init() {
 
 init();
 
+window.addEventListener("keydown", onKeyDown);
+window.addEventListener("keyup", onKeyUp);
 window.requestAnimationFrame(update);
