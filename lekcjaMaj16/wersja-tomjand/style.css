@@ -20,7 +20,7 @@ body {
 }
 
 .game-over{
-	display: block;
+	display: none;
 	color: red;
 	
 	font-size: 3rem;
@@ -53,3 +53,4 @@ body {
     margin: 0 0 0 -5px;
     width: 10px; 
 } 
+
