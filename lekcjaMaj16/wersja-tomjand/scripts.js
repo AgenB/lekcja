@@ -7,7 +7,7 @@ import {GAME_STATE, $container} from './global.js';
 
 import {onKeyDown, onKeyUp} from './controls.js';
 
-import {createPlayer, updatePlayer} from './player.js';
+import {createPlayer, updatePlayer, destroyPlayer} from './player.js';
 
 import {updateLaser, updateEnemyLasers} from './laser.js';
 import {updateEnemy, createEnemiesArmy} from './enemies.js';
@@ -32,11 +32,19 @@ function drawGame () {
 	window.requestAnimationFrame (drawGame);
 }
 
-function init () {
+export function init () {
 	const $container = document.querySelector ('.game');
+	let playerDOM = document.querySelector(".player");
+	if (!playerDOM === null) {
+		destroyPlayer($container, playerDOM);
+	}
+	GAME_STATE.enemies = [];
+	GAME_STATE.gameOver = false;
+	console.log(GAME_STATE.enemies);
 	createPlayer ($container);
 	createEnemiesArmy ();
 }
+
 init ();
 
 window.requestAnimationFrame (drawGame);

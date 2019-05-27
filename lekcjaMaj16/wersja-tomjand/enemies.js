@@ -49,3 +49,7 @@ export function createEnemiesArmy() {
         }
     }
 }
+
+export function clearEnemies() {
+    GAME_STATE.enemies = [];
+}
