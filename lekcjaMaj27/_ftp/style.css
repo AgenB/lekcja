@@ -1,0 +1,6 @@
+.visible {
+    display: block;
+}
+.tabs_panel {
+    display: none;
+}

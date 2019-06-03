@@ -10,7 +10,7 @@ $arr = [];
 $sql = "select * from tabs;";
 $result = mysqli_query($conn, $sql);
 while ($row = mysqli_fetch_assoc($result)) {
-    $content = [$row["tabName"], $row["tabContent"]];
+    $content = [$row["tabs_id"], $row["tabName"], $row["tabContent"]];
     $arr[] = $content;
 }
 $conn -> close();
