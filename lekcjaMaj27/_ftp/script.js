@@ -8,18 +8,26 @@ function getTabs() {
     xhr.addEventListener("load", function() {
         if (this.status == 200) {
             let response = JSON.parse(this.response);
-            response.forEach((item, i) => {
-                let tabButton = document.createElement("button");
-                tabButton.className = "tabs_btn";
-                tabButton.innerText = (i + 1) + ". " + item[1];
-                tabsSidebar.appendChild(tabButton);
-                let id = item[0];
-                tabButton.addEventListener("click", removeTab);
-                let tabPanel = document.createElement("section");
-                tabPanel.className = "tabs_panel";
-                tabPanel.innerText = item[2];
-                tabsContent.appendChild(tabPanel);
+
+            let tabs = tabsSidebar.querySelectorAll("div");
+            let anyActive = false;
+            let whichActive = 0;
+            tabs.forEach((item, i) => {
+                if (item.classList.contains("active_tab")) {
+                    anyActive = true;
+                    whichActive = i;
+                }
             });
+            
+            clearTabs()
+            response.forEach((item, i) => {createTab(item, i)});
+
+            tabs = tabsSidebar.querySelectorAll("div");
+            if (tabs) {
+                if (tabs[whichActive]) {
+                    tabs[whichActive].classList.add("active_tab");
+                }
+            }
             console.log(response);
         }
         else {
@@ -31,6 +39,36 @@ function getTabs() {
     });
 }
 
+function createTab(response, i) {
+    let tabButton = document.createElement("div");
+    tabButton.className = "tabs_btn";
+    tabButton.innerText = `${i + 1}. ${response[1]}`;
+    tabButton.dataset.tabId = response[0];
+    tabButton.addEventListener("click", activateTab);
+
+    let tabDel = document.createElement("span");
+    tabDel.innerText = "X";
+    tabDel.className = "tabs_delbtn";
+    tabDel.addEventListener("click", removeTab);
+
+    let tabPanel = document.createElement("section");
+    tabPanel.className = "tabs_panel";
+    tabPanel.innerText = response[2];
+
+    tabButton.appendChild(tabDel);
+    tabsSidebar.appendChild(tabButton);
+    tabsContent.appendChild(tabPanel);
+}
+
+function removeTab(e) {
+    console.log("delete");
+    e.stopPropagation();
+}
+
+function activateTab(e) {
+    console.log("activate");
+}
+
 function clearTabs() {
     while (tabsSidebar.firstChild) {
         tabsSidebar.removeChild(tabsSidebar.firstChild);
@@ -40,13 +78,9 @@ function clearTabs() {
     }
 }
 
-function removeTab() {
-    console.log(id);
-}
-
 // tabsBtn.forEach((button)=>{
 //     button.addEventListener('click', ()=>{
-//         const tabNr = button.dataset.tabNr;
+//         const tabNr = button .dataset.tabNr;
 //         console.log(button);
 //         tabsBtn.forEach(btn=>{
 //             btn.classList.remove("isActive");

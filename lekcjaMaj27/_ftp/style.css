@@ -4,3 +4,21 @@
 .tabs_panel {
     display: none;
 }
+.tabs_btn {
+    background: lightgrey;
+    display: inline-block;
+    padding: 1em;
+    border-radius: 1em 1em 0 0;
+    transition: 0.2s;
+}
+.tabs_btn:hover {
+    background: rgb(165, 207, 219);
+}
+.active_tab {
+    background: rgb(148, 218, 238);
+}
+.tabs_delbtn {
+    background: red;
+    margin: 0.1em;
+    padding: 0.1em 0.3em;
+}
