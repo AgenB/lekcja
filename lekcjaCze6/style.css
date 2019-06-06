@@ -1,0 +1,63 @@
+*{
+
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 50vh; 
+    --textColor: #251E25;
+    --primaryColor:#03CEA4;
+    --secondaryColor:#52FFEE;
+    --activeColor:#FB4D3D;
+}
+.tabs{
+    border: 1px dashed red;
+    height: 50vh;
+    color: var(--textColor);
+}
+
+.tabs__sidebar{
+    height:10%;
+    display: flex;
+}
+
+
+.tabs__btn {
+    background:var(--primaryColor);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    flex:15% 0 1; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tabs__content{
+    background: var(--secondaryColor);
+    display: none;
+    padding: 2rem;
+
+}
+
+.tabs__content--active{
+    display: block;
+    height:90%;
+}
+
+.tabs__btn--active{
+    background: var(--secondaryColor);
+}
+.tabBtn__deleteTab{
+	background:red;
+}
+
+
+.tabBtn__deleteTab {
+    background: red;
+}
+
+.tabs__btn--active, .tabs__content--active {
+    background:lightgreen;
+}
