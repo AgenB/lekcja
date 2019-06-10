@@ -32,6 +32,8 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 0.5em;
+    border-radius: 1em 1em 0 0
 }
 
 .tabs__content{
@@ -50,12 +52,7 @@ html, body {
     background: var(--secondaryColor);
 }
 .tabBtn__deleteTab{
-	background:red;
-}
-
-
-.tabBtn__deleteTab {
-    background: red;
+    height: 50%;
 }
 
 .tabs__btn--active, .tabs__content--active {
