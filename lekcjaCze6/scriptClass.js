@@ -90,8 +90,16 @@ class Tabs {
 				this.getTabsContent().forEach(content => {
 					let contentNr = content.dataset.contentNr;
 					if (contentNr === tabNr) {
+                        let changeActive = false;
+                        if (buttonParent.classList.contains("tabs__btn--active")) changeActive = true;
 						content.parentElement.removeChild(content);
-						buttonParent.parentElement.removeChild(buttonParent);
+                        buttonParent.parentElement.removeChild(buttonParent);
+                        if (changeActive) {
+                            const tabs = this.getTabsBtn();
+                            if (tabs) {
+                                this.showTabAndContent(tabs[0], tabs);
+                            }
+                        }
 						console.log(this.getLastTabNr());
 						//this.showLastTabAndContent();
 					}
