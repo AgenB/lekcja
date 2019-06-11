@@ -12,12 +12,17 @@ html, body {
 }
 .tabs{
     border: 1px dashed red;
-    height: 50vh;
+    height: 500px;
     color: var(--textColor);
 }
 
+.tabs__mainbar {
+    height: 10%;
+    display: flex;
+}
+
 .tabs__sidebar{
-    height:10%;
+    height:100%;
     display: flex;
 }
 
@@ -28,7 +33,7 @@ html, body {
     border: none;
     cursor: pointer;
     height: 100%;
-    flex:15% 0 1; 
+    /* flex:15% 0 1;  */
     display: flex;
     justify-content: space-between;
     align-items: center;
