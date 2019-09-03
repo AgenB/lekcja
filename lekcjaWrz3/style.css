@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+.header-item {
+    background: lightblue;
+    border: 1px solid green;
+}
+.logo {
+    margin-right: auto;
+}
+
+.item-a {
+    grid-area: header;
+    background: red;
+    display: flex;
+}
+.item-b {
+    grid-area: main;
+    background: blue;
+}
+.item-c {
+    grid-area: sidebar;
+    background: green;
+}
+.item-d {
+    grid-area: footer;
+    background: yellow;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "header header header header"
+        "main main main sidebar"
+        "footer footer footer footer";
+}
