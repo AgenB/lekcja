@@ -68,3 +68,19 @@
         "sidebar item10 item11 item12"
         "footer footer footer footer";
 }
+
+.product {
+    height: 300px;
+    width: 500px;
+    background: lightgrey;
+    position: relative;
+}
+.product-img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.product-price {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
