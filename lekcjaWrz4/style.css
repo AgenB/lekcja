@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+.card {
+    height: 3rem;
+    background: lightblue;
+}
+.header {
+    background: red;
+    grid-area: header;
+}
+.sidebar {
+    background: orange;
+    grid-area: sidebar;
+}
+.item1 {
+    grid-area: item1;
+}
+.item2 {
+    grid-area: item2;
+}
+.item3 {
+    grid-area: item3;
+}
+.item4 {
+    grid-area: item4;
+}
+.item5 {
+    grid-area: item5;
+}
+.item6 {
+    grid-area: item6;
+}
+.item7 {
+    grid-area: item7;
+}
+.item8 {
+    grid-area: item8;
+}
+.item9 {
+    grid-area: item9;
+}
+.item10 {
+    grid-area: item10;
+}
+.item11 {
+    grid-area: item11;
+}
+.item12 {
+    grid-area: item12;
+}
+.footer {
+    grid-area: footer;
+    background: yellow;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 5px;
+    grid-template-areas:
+        "header header header header"
+        "sidebar item1 item2 item3"
+        "sidebar item4 item5 item6"
+        "sidebar item7 item8 item9"
+        "sidebar item10 item11 item12"
+        "footer footer footer footer";
+}
