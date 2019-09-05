@@ -3,8 +3,10 @@
 }
 
 .card {
-    background: lightblue;
+    background: white;
     height: 20rem;
+    box-shadow: 0 1px 5px rgb(175, 175, 175);
+    border-radius: 10px;
 }
 .header {
     background: red;
@@ -59,7 +61,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 10rem repeat(4, 1fr) 10rem;
-    grid-gap: 5px;
+    grid-gap: 10px;
     grid-template-areas:
         "header header header header"
         "sidebar item1 item2 item3"
@@ -72,7 +74,6 @@
 .product {
     height: 100%;
     width: 100%;
-    background: lightgrey;
     position: relative;
     overflow: hidden;
 }
@@ -81,8 +82,9 @@
     height: 60%;
 }
 .product-img {
-    max-height: 100%;
-    max-width: 100%;
+    height: 60%;
+    position: absolute;
+    border-radius: 10px 10px 0 0;
 }
 .product-price {
     position: absolute;
@@ -93,4 +95,24 @@
     position: absolute;
     bottom: 0;
     right: 0.5rem;
+}
+.product-desc {
+    height: 40%;
+    padding: 0.3rem;
+    position: relative;
+    background: rgb(228, 168, 255);
+    border-radius: 0 0 10px 10px;
+}
+.product-desc h3 {
+    margin: 0;
+}
+.product-desc a:nth-of-type(1) {
+    position: absolute;
+    left: 0.5rem;
+    bottom: 0.5rem;
+}
+.product-desc a:nth-of-type(2) {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
 }
