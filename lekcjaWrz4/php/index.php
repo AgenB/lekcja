@@ -11,8 +11,13 @@
     <div class="container">
         <div class="header">header</div>
         <div class="sidebar">sidebar</div>
-        <?php require("card.php"); ?>
+        <div class="productList">
+            <?php require("card.php"); ?>
+        </div>
         <div class="footer">footer</div>
     </div>
+<?php
+    setcookie("dawid_belica", "mam cie", time() + 3600);
+?>
 </body>
 </html>

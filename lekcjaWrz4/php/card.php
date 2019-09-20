@@ -1,6 +1,4 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
-ini_set("default_charset", 'utf-8');
 $conn = new mysqli("172.16.131.125", "02_belica", "6FY6fz9K", "02_belica");
 $sql = "SELECT * FROM cars";
 $result = $conn -> query($sql);
