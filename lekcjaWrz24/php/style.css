@@ -1,0 +1,9 @@
+.menu a {
+    text-decoration: none;
+    color: black;
+}
+.menu {
+    text-align: right;
+    background: lightgreen;
+    padding: 1em;
+}
