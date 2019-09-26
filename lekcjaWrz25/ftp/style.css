@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.sidebar {
+    grid-area: sidebar;
+    background: lightblue;
+}
+.loginMenu {
+    grid-area: menu;
+    background: lightgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content {
+    grid-area: content;
+    background: rgb(228, 228, 228);
+    display: flex;
+    justify-content: center;
+}
+.container {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+    "sidebar menu"
+    "sidebar content"
+}
+.green {
+    background: green;
+}
+.red {
+    background: red;
+}
+h1 {
+    display: block;
+    width: 5em;
+    height: 1.2em;
+    text-align: center;
+}
+span {
+    color: crimson;
+}
