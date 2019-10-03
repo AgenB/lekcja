@@ -12,7 +12,7 @@
         $hashedPass = password_hash($_POST["password"], PASSWORD_DEFAULT, $options);
 
         $conn = new mysqli("172.16.131.125", "02_belica", "6FY6fz9K", "02_belica");
-        $sql = "insert into users (username, password) values ('".$_POST["username"]."', '".$hashedPass."');";
+        $sql = "insert into users (username, password, id_role) values ('".$_POST["username"]."', '".$hashedPass."', 1);";
         $conn->query($sql);
         $conn->close();
     ?>
