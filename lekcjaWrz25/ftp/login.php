@@ -4,20 +4,24 @@
     $badPassword = false;
     if (isset($_GET["akcja"]) && $_GET["akcja"] == "wyloguj" && isset($_SESSION["zalogowany"])) {
         unset($_SESSION["zalogowany"]);
+        unset($_SESSION["username"]);
     }
     if (isset($_POST["username"])) {
         $conn = new mysqli("172.16.131.125", "02_belica", "6FY6fz9K", "02_belica");
-        $sql1 = "select username, password from users where username like '".$_POST["username"]."';";
+        $sql1 = "select username, password from users where username = '".$_POST["username"]."';";
         $result1 = $conn -> query($sql1);
         if ($result1->num_rows == 0) {
             $userExists = false;
         }
-        while($row = $result1 -> fetch_assoc()) {
-            if (password_verify($_POST["password"], $row["password"])) {
-                $_SESSION["zalogowany"] = 1;
-            }
-            else {
-                $badPassword = true;
+        else {
+            while($row = $result1 -> fetch_assoc()) {
+                if (password_verify($_POST["password"], $row["password"])) {
+                    $_SESSION["zalogowany"] = 1;
+                    $_SESSION["username"] = $row["username"];
+                }
+                else {
+                    $badPassword = true;
+                }
             }
         }
         $conn->close();
@@ -39,3 +43,5 @@
         </form>");
     }
 ?>
+
+<!-- SELECT roles.role, permissions.permission FROM users INNER JOIN roles ON users.id_role=roles.id_role INNER JOIN role_permission ON roles.id_role=role_permission.id_role INNER JOIN permissions ON role_permission.id_perm=permissions.id_perm WHERE users.username like "jacek" -->
