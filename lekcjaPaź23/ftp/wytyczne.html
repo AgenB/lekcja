@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wytyczne do projektu Biblioteka</title>
+    <link rel="stylesheet" href="Wytyczne%20do%20projektu%20Biblioteka_pliki/style.html">
+</head>
+<body>
+    <h1>Wytyczne do projektu Biblioteka</h1>
+    <ol>
+        <li>rysunek: wstęp interfejsu</li>
+        <li>rysunek: bazy danych - jakie tabele bedą potrzebne</li>
+        <li>określenie szczegółowych wymagań:</li>
+            <ul>
+                <li>CRUD autorzy ksiązek</li>
+                <li>CRUD tytułach książek (autor + tytuł = ksiązka)</li>
+                <li>CRUD wypozyczeniach</li>
+                <li>CRUD na wypozyczających (uczniow)</li>
+                <li>dodatkowo: rejestracja i autoryzacja uzytkownikow - dostep przez www do info. użytkownika (ucznia): 
+                    <ul>
+                        <li>wpozyczone ksiazki</li>
+                        <li>profil</li>
+                        <li>ilosc dni do zwrotu</li>
+                    </ul>    
+                </li>
+            </ul>
+            <li>dla pracownika Biblioteki:
+
+                <ul>
+                    <li>jakie wypozyczone ksiazki</li>
+                    <li>jakie ksiazki po terminie zwrotu</li>
+                </ul>
+            </li>
+        <li>projekt bazy danych</li>
+    </ol>    
+
+
+    <h2>Baza danych (nazwy tabel):</h2>
+    <ol>
+        <li>users (id_users , login, passwd)</li>
+        <li>authors (id_authors, name)</li>
+        <li>titles (id_titles, title)</li>
+        <li>books (id_books, id_authors, id_titles, ISBN)</li>
+        <li>checkouts (id_checkouts, id_users,id_books, date_in, date_out)</li>
+    </ol>
+
+
+</body></html>
