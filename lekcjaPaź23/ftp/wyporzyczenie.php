@@ -9,10 +9,8 @@
 <body>
     <?php
     require "class.biblsql.php";
-    $sql = new biblsql();
-
-    $arr = array("test"=>"123", "drugi"=>"456");
-    echo $arr["test"];
+    $bibl = new biblsql();
+    var_dump($bibl->searchBooks("zagr"));
     ?>
 </body>
 </html>
