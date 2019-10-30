@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 24, 2019 at 02:49 PM
+-- Generation Time: Oct 30, 2019 at 11:24 AM
 -- Server version: 5.7.27-0ubuntu0.16.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.6
 
@@ -37,7 +37,9 @@ CREATE TABLE `proj_books` (
 --
 
 INSERT INTO `proj_books` (`id_books`, `id_titles`, `id_authors`) VALUES
-(1, 1, 1);
+(1, 1, 1),
+(2, 2, 2),
+(3, 2, 3);
 
 --
 -- Indexes for dumped tables
@@ -59,7 +61,7 @@ ALTER TABLE `proj_books`
 -- AUTO_INCREMENT for table `proj_books`
 --
 ALTER TABLE `proj_books`
-  MODIFY `id_books` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_books` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 25, 2019 at 12:09 PM
+-- Generation Time: Oct 30, 2019 at 11:24 AM
 -- Server version: 5.7.27-0ubuntu0.16.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.6
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `proj_checkouts` (
   `id_checkouts` int(11) NOT NULL,
   `id_users` int(11) NOT NULL,
-  `id_titles` int(11) NOT NULL,
-  `date_out` datetime NOT NULL,
-  `date_in` datetime NOT NULL
+  `id_copies` int(11) NOT NULL,
+  `date_out` date NOT NULL,
+  `date_in` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `proj_checkouts` (
 ALTER TABLE `proj_checkouts`
   ADD PRIMARY KEY (`id_checkouts`),
   ADD KEY `id_users` (`id_users`),
-  ADD KEY `id_books` (`id_titles`);
+  ADD KEY `id_books` (`id_copies`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -63,7 +63,7 @@ ALTER TABLE `proj_checkouts`
 -- Constraints for table `proj_checkouts`
 --
 ALTER TABLE `proj_checkouts`
-  ADD CONSTRAINT `title_id` FOREIGN KEY (`id_titles`) REFERENCES `proj_titles` (`id_titles`),
+  ADD CONSTRAINT `title_id` FOREIGN KEY (`id_copies`) REFERENCES `proj_copies` (`id_copies`),
   ADD CONSTRAINT `user_id` FOREIGN KEY (`id_users`) REFERENCES `proj_users` (`id_users`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -12,12 +12,20 @@ class biblsql {
     function __destruct() {
         $this->conn->close();
     }
-
+    function select($columns, $tables, $where = NULL) {
+        if ($where != NULL) {
+            $where = " WHERE (".$where.")";
+        }
+        $sql = "SELECT ".implode(", ", $columns)." FROM ".implode(", ", $tables).$where;
+        echo($sql);
+        $result = $this->conn->query($sql);
+        return $result;
+    }
     function searchBooks($bookName) {
         $sql = "SELECT proj_titles.id_titles, proj_titles.title, proj_authors.name FROM proj_titles JOIN proj_books ON proj_titles.id_titles = proj_books.id_titles JOIN proj_authors ON proj_books.id_authors = proj_authors.id_authors WHERE proj_titles.title like '%".$bookName."%'";
         $result = $this->conn->query($sql);
         $bookList = [];
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $result1->fetch_assoc()) {
             $id = intval($row["id_titles"]);
             if (array_key_exists($id, $bookList)) {
                 $bookList[$id][1][] = $row["name"];
@@ -26,6 +34,7 @@ class biblsql {
                 $bookList[$id] = [$row["title"], [$row["name"]]];
             }
         }
+        $sql2 = "SELECT ";
         return $bookList;
     }
 }
