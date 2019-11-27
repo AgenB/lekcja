@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    display: grid;
+    grid-template:
+    "top top" 1fr
+    "left right" 4fr
+    "bottom bottom" 1fr / 1fr 2fr;
+    height: 100vh;
+    width: 100%;
+}
+.top {
+    background: blue;
+    grid-area: top;
+}
+.left {
+    background: yellow;
+    grid-area: left;
+}
+.right {
+    background: green;
+    grid-area: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottom {
+    background: aqua;
+    grid-area: bottom;
+}
+.slider {
+    overflow: hidden;
+    width: 50%;
+    height: 50%;
+    background: black;
+    position: relative;
+}
+.sliderContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 200ms linear;
+}
+.slide {
+    height: 100%;
+    width: 100%;
+}
+.slide2 {
+    background: pink;
+}
+.slide2 {
+    background: violet;
+}
+.slide3 {
+    background: purple;
+}
+.sliderButtons {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+}
+.btn {
+    width: 100%;
+    height: 2em;
+    background: whitesmoke;
+    text-align: center;
+}
+.sliderButtons:hover {
+    opacity: 0.75;
+}
+.removeSlide {
+
+}
