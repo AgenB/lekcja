@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.menu {
+    background: pink;
+    padding: 1em;
+    display: inline-block;
+}
+.rate {
+    background: rgb(75, 211, 75);
+    padding: 0.5em;
+}
