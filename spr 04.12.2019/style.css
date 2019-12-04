@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.clickdiv {
+    width: 100px;
+    height: 60px;
+    margin: 1em;
+    background: yellow;
+}
+.animContainer {
+    height: 140px;
+}
+.animdiv {
+    width: 60px;
+    height: 60px;
+    background: violet;
+    margin: 1em;
+    animation: anim 2s linear infinite;
+}
+@keyframes anim {
+    from {
+        transform: rotate(0deg);
+        height: 60px;
+        width: 60px;
+    }
+    to {
+        transform: rotate(360deg);
+        height: 120px;
+        width: 120px;
+    }
+}
